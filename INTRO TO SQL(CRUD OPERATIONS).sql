@@ -117,3 +117,4 @@ SELECT * FROM employees;
             SELECT SUM(ProductPrice - ProductCost) AS gross_profit
             FROM products;
    
+           -- SQL LEC 2
