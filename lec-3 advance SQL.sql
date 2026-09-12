@@ -74,8 +74,47 @@ FROM sales;
  -- TEMPORARY SCOPE
  
  -- QUERY TO GIVE THE AVG PRODUCT PRICE FOR EACH SUBCATEGORY KEY
- SELECT * FROM products;
- SELECT * FROM `product-subcategories`;
+ -- productSubcategorykey, subcategoryName, AvgPrice
+ SELECT 
+    psc.ProductSubcategoryKey,
+    psc.SubcategoryName,
+    ROUND(AVG(p.ProductPrice), 2) AS AvgPrice
+FROM products AS p
+JOIN `product-subcategories` AS psc
+    ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey
+GROUP BY 
+    psc.ProductSubcategoryKey,
+    psc.SubcategoryName;
+    
+  -- Based on Avg results , productSubcategoryKey,  SubcategoryName and AvggPrice list the details of the customers whose productprice is more then avg price
+WITH AvgCategoryPrice AS
+(
+    SELECT 
+        psc.ProductSubcategoryKey,
+        psc.SubcategoryName,
+        ROUND(AVG(p.ProductPrice), 2) AS AvgPrice
+    FROM products AS p
+    JOIN `product-subcategories` AS psc
+        ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey
+    GROUP BY 
+        psc.ProductSubcategoryKey,
+        psc.SubcategoryName
+)
+
+SELECT 
+    p.ProductKey,
+    p.ProductName,
+    p.ProductPrice,
+    acp.AvgPrice
+FROM products AS p
+JOIN AvgCategoryPrice AS acp
+    ON p.ProductSubcategoryKey = acp.ProductSubcategoryKey
+WHERE p.ProductPrice > acp.AvgPrice
+ORDER BY p.ProductPrice DESC;
+ -- VIEWS => VIRTUAL TABLE WHICH CONTAINS NO RECORDS
+ SELECT * FROM customers;
+ SELECT * FROM children;
  
  
+  
 

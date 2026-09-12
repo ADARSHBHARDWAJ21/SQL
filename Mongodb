@@ -1,0 +1,57 @@
+#mongodb is a nosql(non relational) database
+A Database is organised collection of data data can be stored organised and easily accessd whwereever required
+# Types of data base
+1) SQL DATA BASE(Relational database) - data is stored in form of tables , consisting of rows and columns ex oracle, my sql, postgresql
+2) NO SQL Database (non relational Database) - No SQL databases stored data as documents, and a group of documents is called collection.
+  ex - {
+    "name":"Ram kumar",
+    "age" : 22,
+    "gender" : "Male"
+      }
+
+      A group of such JSON-like documents forms a collection
+      #mongodb is non relational in table
+
+      JSON(Javascript Object Notation)
+      json supports the following basic data types:
+      .String
+      .Number
+      .Boolean
+      .Array
+      .Object
+      .Null
+      #BSON(Binary JSON)
+      Bson is a Binary representation of JSON used internally by MONGODB to stor the docuents efficiently.
+
+      ex of BSON
+  {
+  "_id": "60d5ec49f1a2c82d8c8e4b1a",
+  "name": "Alice",
+  "age": 30,
+  "is_active": true,
+  "joined": "2026-09-11T00:00:00Z"
+}
+
+#Benifits of using MONGODB Database
+MongoDb provides several advantages that make it a popular choice for modern application
+SQL is like a strict paper form.
+
+Everyone gets the exact same form with fields like Name, Age, and Address.
+
+If you want to write down someone’s favorite food, you have to reprint the form for everyone with a new line for "Favorite Food," even if only one person filled it out.
+
+If you want to see what they ordered, you have to open a separate sheet for "Orders" and match the names together.
+
+MongoDB is like a box of sticky notes.
+
+Each friend gets their own sticky note.
+
+You can write down whatever you want on each note. If Alice has a phone number, write it down. if Bob doesn't, just leave it off.
+
+You can list all of someone's orders directly on their sticky note, so everything you need is in one place.
+
+In short:
+
+SQL: Very organized, strict rules, great for things like banks where everything must fit exact rules.
+
+MongoDB: Super flexible, easy to change, great for fast-growing apps and websites.
